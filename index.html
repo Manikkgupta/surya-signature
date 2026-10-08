@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Surya Signature static storefront website by Copilot" />
+  <title>Surya Signature</title>
+  <style>
+    :root {
+      --ink: #22211d;
+      --muted: #726d67;
+      --paper: #f8f4ee;
+      --cream: #efe7dc;
+      --gold: #ad8b55;
+      --line: #ddd3c5;
+      --wine: #563b3b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .announcement { background: #1d1d1a; color: #efe7dc; text-align: center; font-size: 11px; letter-spacing: 2px; padding: 10px 8px; }
+    .header { background: rgba(255,255,255,0.96); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; min-height: 88px; }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .brand-mark {
+      width: 42px; height: 42px; border: 1px solid var(--gold); display: grid; place-items: center;
+      font-size: 28px; font-family: Georgia, serif; color: var(--gold);
+      position: relative;
+    }
+    .brand-mark::before, .brand-mark::after {
+      content: ""; position: absolute; left: 15px; width: 5px; height: 5px; border: 1px solid var(--gold); transform: rotate(45deg); background: white;
+    }
+    .brand-mark::before { top: -5px; }
+    .brand-mark::after { bottom: -5px; }
+    .brand-name { font-family: Georgia, serif; font-size: 24px; letter-spacing: 1px; }
+    .brand-tag { font-size: 10px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; }
+    .nav { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; justify-content: center; border-top: 1px solid #efe7dc; padding: 10px 0; }
+    .nav a { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+    .nav a.active { color: var(--ink); }
+    .hero { position: relative; background: #ece3d7; min-height: 620px; overflow: hidden; }
+    .hero img {
+      position: absolute; inset: 0 0 0 43%; width: 57%; height: 100%; object-fit: cover; object-position: center;
+    }
+    .hero::after {
+      content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(236,227,215,1) 0%, rgba(236,227,215,0.92) 28%, rgba(236,227,215,0.75) 42%, rgba(236,227,215,0.1) 100%);
+    }
+    .hero-inner { position: relative; z-index: 1; display: flex; align-items: center; min-height: 620px; }
+    .hero-copy { max-width: 520px; padding: 60px 0; }
+    .eyebrow {
+      color: var(--gold); text-transform: uppercase; letter-spacing: 3px; font-size: 10px; font-weight: 600;
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-family: Georgia, serif; font-size: clamp(3rem, 5vw, 5.5rem); line-height: 0.96; letter-spacing: -0.04em; margin: 0 0 18px;
+    }
+    .hero-copy p { max-width: 360px; color: var(--muted); font-size: 14px; }
+    .cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 15px 24px; border: 1px solid #1d1d1a; background: #1d1d1a; color: white; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    }
+    .btn.secondary { background: transparent; color: var(--ink); border-color: #b7a98d; }
+    .trust { border-bottom: 1px solid var(--line); }
+    .trust-grid {
+      display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 0; padding: 22px 0;
+    }
+    .trust-item { display: flex; align-items: center; justify-content: center; gap: 12px; border-right: 1px solid var(--line); min-height: 60px; }
+    .trust-item:last-child { border-right: none; }
+    .trust-item .icon {
+      width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: #f4efe8; color: var(--gold);
+      font-size: 14px;
+    }
+    .trust-item strong { display: block; font-size: 11px; letter-spacing: 0.8px; }
+    .trust-item span { display: block; font-size: 9px; color: var(--muted); }
+    .section { padding: 72px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 28px; }
+    h2 { margin: 0; font-family: Georgia, serif; font-size: clamp(2.2rem, 4vw, 3.4rem); line-height: 1.05; }
+    .link { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink); border-bottom: 1px solid rgba(0,0,0,.4); padding-bottom: 4px; }
+    .cards { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 20px; }
+    .collection-card {
+      position: relative; overflow: hidden; min-height: 360px; background: #d9d0c3; display: block;
+    }
+    .collection-card img { width: 100%; height: 100%; object-fit: cover; }
+    .collection-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,0.62) 100%); }
+    .collection-content {
+      position: absolute; left: 24px; right: 24px; bottom: 22px; z-index: 1; color: white; 
+    }
+    .collection-content .eyebrow { color: #e8d9b7; margin-bottom: 10px; }
+    .collection-content h3 { font-family: Georgia, serif; font-size: 30px; margin: 0 0 12px; }
+    .collection-content .link { color: white; border-color: rgba(255,255,255,.5); }
+    .bestsellers { background: #f7f2eb; }
+    .product-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 22px; }
+    .product-card { background: transparent; }
+    .product-image { position: relative; overflow: hidden; background: #e7dfd5; aspect-ratio: 3 / 4; }
+    .product-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .badge { position: absolute; left: 12px; top: 12px; background: rgba(255,255,255,0.9); font-size: 9px; letter-spacing: 1.2px; padding: 5px 8px; text-transform: uppercase; }
+    .wish { position: absolute; right: 10px; top: 10px; width: 30px; height: 30px; border-radius: 50%; border: none; background: rgba(255,255,255,.8); }
+    .product-info { padding-top: 12px; }
+    .category { font-size: 9px; letter-spacing: 1.5px; color: var(--muted); text-transform: uppercase; }
+    .name { font-family: Georgia, serif; font-size: 21px; margin: 5px 0 8px; }
+    .meta { display: flex; justify-content: space-between; align-items: center; }
+    .price { font-weight: 700; font-size: 12px; }
+    .swatches { display: flex; gap: 5px; }
+    .swatch { width: 10px; height: 10px; border-radius: 50%; display: block; border: 1px solid rgba(0,0,0,.1); }
+    .story { display: grid; grid-template-columns: 1.1fr 1fr; min-height: 420px; background: #e9e1d5; }
+    .story img { width: 100%; height: 100%; object-fit: cover; }
+    .story-copy { padding: 52px 56px; display: flex; align-items: center; }
+    .story-copy h2 { margin-bottom: 18px; }
+    .story-copy p { color: var(--muted); max-width: 350px; }
+    .service-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .service-card { background: var(--cream); padding: 42px; min-height: 250px; position: relative; }
+    .service-card.dark { background: #282b27; color: #f6f2eb; }
+    .service-card p { color: var(--muted); }
+    .service-card.dark p { color: #cfcac0; }
+    .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .visit-card { border: 1px solid var(--line); background: white; display: grid; grid-template-columns: 150px 1fr; }
+    .visit-card img { width: 100%; height: 100%; object-fit: cover; }
+    .visit-copy { padding: 22px; }
+    .visit-copy h3 { margin: 10px 0; font-size: 28px; font-family: Georgia, serif; }
+    .visit-copy p { color: var(--muted); font-size: 12px; }
+    .newsletter { background: #efe7dc; padding: 28px 0; }
+    .newsletter-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .newsletter h3 { margin: 0; font-family: Georgia, serif; font-size: 32px; }
+    .newsletter form { display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #a9987a; width: min(100%, 430px); }
+    .newsletter input { flex: 1; min-width: 0; border: none; background: transparent; padding: 12px 0; font-size: 15px; }
+    .footer { background: #1d201d; color: #efe6de; padding: 52px 0 26px; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 30px; }
+    .footer .brand-name { font-size: 22px; }
+    .footer-copy { max-width: 320px; color: #b7b8b0; font-size: 12px; }
+    .footer h4 { font-size: 11px; letter-spacing: 2px; margin-bottom: 18px; text-transform: uppercase; color: #f3e7d0; }
+    .footer-links { display: grid; gap: 9px; font-size: 12px; color: #b7b8b0; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.12); margin-top: 30px; padding-top: 18px; display: flex; justify-content: space-between; color: #b7b8b0; font-size: 11px; }
+    @media (max-width: 900px) {
+      .cards, .product-grid, .service-grid, .visit-grid, .footer-grid { grid-template-columns: 1fr 1fr; }
+      .hero img { left: 35%; width: 65%; }
+      .story { grid-template-columns: 1fr; }
+      .story img { height: 300px; }
+    }
+    @media (max-width: 640px) {
+      .cards, .product-grid, .service-grid, .visit-grid, .footer-grid, .trust-grid { grid-template-columns: 1fr; }
+      .topbar { align-items: flex-start; padding: 20px 0 12px; }
+      .nav { justify-content: flex-start; gap: 14px; }
+      .hero img { left: 0; width: 100%; opacity: 0.6; }
+      .hero::after { background: linear-gradient(90deg, rgba(236,227,215,.95) 0%, rgba(236,227,215,.8) 48%, rgba(236,227,215,.2) 100%); }
+      .newsletter-inner { display: block; }
+      .newsletter form { width: 100%; margin-top: 20px; }
+      .section-head { display: block; }
+      .section { padding: 52px 0; }
+      .story-copy { padding: 28px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="announcement">Crafted for your special moments • Complimentary in-store style consultation</div>
+  <header class="header">
+    <div class="wrap topbar">
+      <div class="brand">
+        <div class="brand-mark">S</div>
+        <div>
+          <div class="brand-name">SURYA SIGNATURE</div>
+          <div class="brand-tag">Where Tradition Meets Signature Style</div>
+        </div>
+      </div>
+      <div style="display:flex; gap:16px; align-items:center;">
+        <span>Search</span>
+        <span>Wishlist</span>
+        <span>Bag</span>
+      </div>
+    </div>
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a href="#" class="active">Home</a>
+      <a href="#">Men</a>
+      <a href="#">Kids</a>
+      <a href="#">Accessories</a>
+      <a href="#">New Arrivals</a>
+      <a href="#">Bestsellers</a>
+      <a href="#">Appointment</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=1200&q=80" alt="Luxury occasion wear" />
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <div class="eyebrow">The art of dressing well</div>
+          <h1>Make every<br />occasion your<br />signature.</h1>
+          <p>Premium ethnic, western and occasion wear for men and kids.</p>
+          <div class="cta-row">
+            <a href="#" class="btn">Shop Men's Collection</a>
+            <a href="#" class="btn secondary">Shop Kids Collection</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust">
+      <div class="wrap trust-grid">
+        <div class="trust-item"><div class="icon">✦</div><div><strong>Exceptional Craftsmanship</strong><span>Details that make the difference</span></div></div>
+        <div class="trust-item"><div class="icon">✂</div><div><strong>A fit that's yours</strong><span>Personalized alteration service</span></div></div>
+        <div class="trust-item"><div class="icon">◎</div><div><strong>Personal style assistance</strong><span>Thoughtfully curated for you</span></div></div>
+        <div class="trust-item"><div class="icon">⌖</div><div><strong>Two stores. One signature.</strong><span>Experience us in person</span></div></div>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">A wardrobe, beautifully considered</div>
+          <h2>Discover your signature</h2>
+        </div>
+        <a href="#" class="link">Explore collections</a>
+      </div>
+      <div class="cards">
+        <a href="#" class="collection-card">
+          <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=900&q=80" alt="Men's collection" />
+          <div class="collection-content">
+            <div class="eyebrow">Timeless. Confident. Distinctive.</div>
+            <h3>The Men's Edit</h3>
+            <span class="link">Discover the collection</span>
+          </div>
+        </a>
+        <a href="#" class="collection-card">
+          <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=900&q=80" alt="Kids collection" />
+          <div class="collection-content">
+            <div class="eyebrow">Little moments. Grand style.</div>
+            <h3>Little Signatures</h3>
+            <span class="link">Shop kids</span>
+          </div>
+        </a>
+        <a href="#" class="collection-card">
+          <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=900&q=80" alt="Accessories" />
+          <div class="collection-content">
+            <div class="eyebrow">The finishing touch</div>
+            <h3>Fine Details</h3>
+            <span class="link">Shop accessories</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section bestsellers">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">The pieces you love</div>
+            <h2>Signature bestsellers</h2>
+          </div>
+        </div>
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=800&q=80" alt="Ivory Heritage Sherwani" />
+              <span class="badge">Bestseller</span>
+              <button class="wish" aria-label="Save to wishlist">♡</button>
+            </div>
+            <div class="product-info">
+              <div class="category">Sherwanis</div>
+              <div class="name">Ivory Heritage</div>
+              <div class="meta"><span class="price">₹18,990</span><span class="swatches"><span class="swatch" style="background:#e8e0d1"></span><span class="swatch" style="background:#c7a77b"></span></span></div>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80" alt="Midnight Bandhgala" />
+              <span class="badge">New</span>
+              <button class="wish" aria-label="Save to wishlist">♡</button>
+            </div>
+            <div class="product-info">
+              <div class="category">Bandhgala</div>
+              <div class="name">Midnight Bandhgala</div>
+              <div class="meta"><span class="price">₹12,990</span><span class="swatches"><span class="swatch" style="background:#111"></span><span class="swatch" style="background:#2d3d52"></span></span></div>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=80" alt="Classic Celebration Suit" />
+              <button class="wish" aria-label="Save to wishlist">♡</button>
+            </div>
+            <div class="product-info">
+              <div class="category">Suits</div>
+              <div class="name">Classic Celebration</div>
+              <div class="meta"><span class="price">₹16,990</span><span class="swatches"><span class="swatch" style="background:#5f5f5b"></span><span class="swatch" style="background:#111"></span></span></div>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=800&q=80" alt="Little Gentleman Suit" />
+              <span class="badge">Featured</span>
+              <button class="wish" aria-label="Save to wishlist">♡</button>
+            </div>
+            <div class="product-info">
+              <div class="category">Kids</div>
+              <div class="name">Little Gentleman</div>
+              <div class="meta"><span class="price">₹4,990</span><span class="swatches"><span class="swatch" style="background:#20314b"></span><span class="swatch" style="background:#d9c49f"></span></span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="story">
+      <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80" alt="Occasion styling" />
+      <div class="story-copy">
+        <div>
+          <div class="eyebrow">For the moments that matter</div>
+          <h2>A celebration. A statement. Your signature.</h2>
+          <p>From the first ceremony to the last dance, discover wedding and occasion wear made for unforgettable moments.</p>
+          <div class="cta-row" style="margin-top:24px;"><a href="#" class="btn">Explore wedding wear</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Fresh perspectives. Timeless style.</div>
+          <h2>New to the collection</h2>
+        </div>
+        <a href="#" class="link">View new arrivals</a>
+      </div>
+      <div class="product-grid">
+        <article class="product-card">
+          <div class="product-image"><img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=800&q=80" alt="Contemporary Indo-Western" /><button class="wish" aria-label="Save to wishlist">♡</button></div>
+          <div class="product-info"><div class="category">Indo-Western</div><div class="name">Contemporary Indo-Western</div><div class="meta"><span class="price">₹11,990</span><span class="swatches"><span class="swatch" style="background:#c5a77d"></span><span class="swatch" style="background:#6f3940"></span></span></div></div>
+        </article>
+        <article class="product-card">
+          <div class="product-image"><img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=800&q=80" alt="Evening Jodhpuri" /><button class="wish" aria-label="Save to wishlist">♡</button></div>
+          <div class="product-info"><div class="category">Jodhpuri</div><div class="name">Evening Jodhpuri</div><div class="meta"><span class="price">₹14,990</span><span class="swatches"><span class="swatch" style="background:#24324b"></span><span class="swatch" style="background:#111"></span></span></div></div>
+        </article>
+        <article class="product-card">
+          <div class="product-image"><img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=800&q=80" alt="Little Heritage Indo-Western" /><button class="wish" aria-label="Save to wishlist">♡</button></div>
+          <div class="product-info"><div class="category">Kids</div><div class="name">Little Heritage</div><div class="meta"><span class="price">₹5,490</span><span class="swatches"><span class="swatch" style="background:#c49d75"></span><span class="swatch" style="background:#6e3d3e"></span></span></div></div>
+        </article>
+        <article class="product-card">
+          <div class="product-image"><img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=800&q=80" alt="Signature Crest Brooch" /><button class="wish" aria-label="Save to wishlist">♡</button></div>
+          <div class="product-info"><div class="category">Accessories</div><div class="name">Signature Crest Brooch</div><div class="meta"><span class="price">₹1,490</span><span class="swatches"><span class="swatch" style="background:#b79a5b"></span><span class="swatch" style="background:#aeaeb0"></span></span></div></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <div class="service-grid">
+        <div class="service-card">
+          <div class="eyebrow">The perfect fit, personalized</div>
+          <h3 style="font-family: Georgia, serif; font-size: 36px; line-height: 1.04; margin: 0 0 12px;">Made to fit. Made for you.</h3>
+          <p>Our in-store alteration service brings the finishing touches to your chosen piece. Because a great outfit starts with a perfect fit.</p>
+          <div class="cta-row" style="margin-top:20px;"><a href="#" class="link">Discover alteration services</a></div>
+        </div>
+        <div class="service-card dark">
+          <div class="eyebrow">Your style. Our undivided attention.</div>
+          <h3 style="font-family: Georgia, serif; font-size: 36px; line-height: 1.04; margin: 0 0 12px;">A little time. A lasting impression.</h3>
+          <p>Visit us for a personal styling consultation. Find the right silhouette, the right details, and a look that feels entirely you.</p>
+          <div class="cta-row" style="margin-top:20px;"><a href="#" class="link" style="color: white; border-color: rgba(255,255,255,0.55);">Book your appointment</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Experience the difference</div>
+          <h2>Visit our stores</h2>
+        </div>
+        <a href="#" class="link">Get in touch</a>
+      </div>
+      <div class="visit-grid">
+        <div class="visit-card">
+          <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=700&q=80" alt="Main store" />
+          <div class="visit-copy">
+            <div class="eyebrow">The main store</div>
+            <h3>Surya Signature</h3>
+            <p>Our complete world of signature style. Contact us for opening hours and directions.</p>
+            <a href="#" class="link">Plan your visit</a>
+          </div>
+        </div>
+        <div class="visit-card">
+          <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=700&q=80" alt="Branch store" />
+          <div class="visit-copy">
+            <div class="eyebrow">A branch of Surya Signature</div>
+            <h3>Surya Fashion World</h3>
+            <p>The same signature attention to detail. Contact us for opening hours and directions.</p>
+            <a href="#" class="link">Plan your visit</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="newsletter">
+    <div class="wrap newsletter-inner">
+      <div>
+        <h3>A touch of signature in your inbox.</h3>
+      </div>
+      <form>
+        <input type="email" placeholder="Your email address" aria-label="Your email address" />
+        <button type="submit" class="btn" style="padding: 12px 18px;">Join the list</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <div class="brand">
+            <div class="brand-mark" style="width:36px; height:36px; font-size:24px;">S</div>
+            <div>
+              <div class="brand-name">SURYA SIGNATURE</div>
+              <div class="brand-tag" style="color:#b9bda6;">Where tradition meets signature style</div>
+            </div>
+          </div>
+          <p class="footer-copy" style="margin-top:18px;">Considered style for life's defining moments. Premium ethnic, western and occasion wear for men and kids.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <div class="footer-links">
+            <a href="#">Men's collection</a>
+            <a href="#">Kids' collection</a>
+            <a href="#">Accessories</a>
+            <a href="#">Wedding & occasion wear</a>
+          </div>
+        </div>
+        <div>
+          <h4>Here to help</h4>
+          <div class="footer-links">
+            <a href="#">Book an appointment</a>
+            <a href="#">Alteration services</a>
+            <a href="#">Size guide</a>
+            <a href="#">Contact us</a>
+          </div>
+        </div>
+        <div>
+          <h4>Visit</h4>
+          <div class="footer-links">
+            <a href="#">Surya Signature — Main Store</a>
+            <a href="#">Surya Fashion World</a>
+            <a href="#">Our story</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Surya Signature. All rights reserved.</span>
+        <span>Thoughtfully curated. Distinctly yours.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
