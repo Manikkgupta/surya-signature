@@ -62,7 +62,7 @@ html { scroll-behavior: smooth; }
     h1 {
       font-family: Georgia, serif; font-size: clamp(3rem, 5vw, 5.5rem); line-height: 0.96; letter-spacing: -0.04em; margin: 0 0 18px;
     }
-    .hero-copy p { max-width: 360px; color: var(--muted); font-size: 14px; }
+    .hero-copy p { max-width: 440px; color: var(--muted); font-size: 16px; }
     .cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 15px 24px; border: 1px solid #1d1d1a; background: #1d1d1a; color: white; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
@@ -256,7 +256,7 @@ html { scroll-behavior: smooth; }
         <a href="#" class="link">Explore collections</a>
       </div>
       <div class="cards">
-        <a href="#" class="collection-card">
+        <a href="#men" class="collection-card">
           <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=900&q=80" alt="Men's collection" />
           <div class="collection-content">
             <div class="eyebrow">Timeless. Confident. Distinctive.</div>
@@ -264,7 +264,7 @@ html { scroll-behavior: smooth; }
             <span class="link">Discover the collection</span>
           </div>
         </a>
-        <a href="#" class="collection-card">
+       <a href="#kids" class="collection-card">
           <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=900&q=80" alt="Kids collection" />
           <div class="collection-content">
             <div class="eyebrow">Little moments. Grand style.</div>
@@ -272,7 +272,7 @@ html { scroll-behavior: smooth; }
             <span class="link">Shop kids</span>
           </div>
         </a>
-        <a href="#" class="collection-card">
+       <a href="#accessories" class="collection-card">
           <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=900&q=80" alt="Accessories" />
           <div class="collection-content">
             <div class="eyebrow">The finishing touch</div>
@@ -282,8 +282,34 @@ html { scroll-behavior: smooth; }
         </a>
       </div>
     </section>
+<section class="section wrap" id="men">
+  <div class="section-head">
+    <div><div class="eyebrow">The Men's Edit</div><h2>Men's Collection</h2></div>
+  </div>
+  <div class="chips" data-chips="men"></div>
+  <div class="filters" data-filters="men"></div>
+  <div class="product-grid" id="grid-men"></div>
+</section>
 
-    <section class="section bestsellers">
+<section class="section bestsellers" id="kids">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="eyebrow">Little Signatures</div><h2>Kids Collection</h2></div>
+    </div>
+    <div class="chips" data-chips="kids"></div>
+    <div class="filters" data-filters="kids"></div>
+    <div class="product-grid" id="grid-kids"></div>
+  </div>
+</section>
+
+<section class="section wrap" id="accessories">
+  <div class="section-head">
+    <div><div class="eyebrow">The finishing touch</div><h2>Accessories</h2></div>
+  </div>
+  <div class="chips" data-chips="accessories"></div>
+  <div class="product-grid" id="grid-accessories"></div>
+</section>
+    <section class="section bestsellers" id="bestsellers">
       <div class="wrap">
         <div class="section-head">
           <div>
@@ -291,56 +317,8 @@ html { scroll-behavior: smooth; }
             <h2>Signature bestsellers</h2>
           </div>
         </div>
-        <div class="product-grid">
-          <article class="product-card">
-            <div class="product-image">
-              <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=800&q=80" alt="Ivory Heritage Sherwani" />
-              <span class="badge">Bestseller</span>
-              <button class="wish" aria-label="Save to wishlist">♡</button>
-            </div>
-            <div class="product-info">
-              <div class="category">Sherwanis</div>
-              <div class="name">Ivory Heritage</div>
-              <div class="meta"><span class="price">₹18,990</span><span class="swatches"><span class="swatch" style="background:#e8e0d1"></span><span class="swatch" style="background:#c7a77b"></span></span></div>
-            </div>
-          </article>
-          <article class="product-card">
-            <div class="product-image">
-              <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80" alt="Midnight Bandhgala" />
-              <span class="badge">New</span>
-              <button class="wish" aria-label="Save to wishlist">♡</button>
-            </div>
-            <div class="product-info">
-              <div class="category">Bandhgala</div>
-              <div class="name">Midnight Bandhgala</div>
-              <div class="meta"><span class="price">₹12,990</span><span class="swatches"><span class="swatch" style="background:#111"></span><span class="swatch" style="background:#2d3d52"></span></span></div>
-            </div>
-          </article>
-          <article class="product-card">
-            <div class="product-image">
-              <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=80" alt="Classic Celebration Suit" />
-              <button class="wish" aria-label="Save to wishlist">♡</button>
-            </div>
-            <div class="product-info">
-              <div class="category">Suits</div>
-              <div class="name">Classic Celebration</div>
-              <div class="meta"><span class="price">₹16,990</span><span class="swatches"><span class="swatch" style="background:#5f5f5b"></span><span class="swatch" style="background:#111"></span></span></div>
-            </div>
-          </article>
-          <article class="product-card">
-            <div class="product-image">
-              <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=800&q=80" alt="Little Gentleman Suit" />
-              <span class="badge">Featured</span>
-              <button class="wish" aria-label="Save to wishlist">♡</button>
-            </div>
-            <div class="product-info">
-              <div class="category">Kids</div>
-              <div class="name">Little Gentleman</div>
-              <div class="meta"><span class="price">₹4,990</span><span class="swatches"><span class="swatch" style="background:#20314b"></span><span class="swatch" style="background:#d9c49f"></span></span></div>
-            </div>
-          </article>
+        <div class="product-grid" id="grid-best"></div>
         </div>
-      </div>
     </section>
 
     <section class="story">
@@ -355,52 +333,67 @@ html { scroll-behavior: smooth; }
       </div>
     </section>
 
-    <section class="section wrap">
+    <section class="section wrap" id="new-arrivals">
       <div class="section-head">
         <div>
           <div class="eyebrow">Fresh perspectives. Timeless style.</div>
-          <h2>New to the collection</h2>
+          <h2>New Arrivals</h2>
         </div>
         <a href="#" class="link">View new arrivals</a>
       </div>
       <div class="product-grid">
-        <article class="product-card">
-          <div class="product-image"><img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=800&q=80" alt="Contemporary Indo-Western" /><button class="wish" aria-label="Save to wishlist">♡</button></div>
-          <div class="product-info"><div class="category">Indo-Western</div><div class="name">Contemporary Indo-Western</div><div class="meta"><span class="price">₹11,990</span><span class="swatches"><span class="swatch" style="background:#c5a77d"></span><span class="swatch" style="background:#6f3940"></span></span></div></div>
-        </article>
-        <article class="product-card">
-          <div class="product-image"><img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=800&q=80" alt="Evening Jodhpuri" /><button class="wish" aria-label="Save to wishlist">♡</button></div>
-          <div class="product-info"><div class="category">Jodhpuri</div><div class="name">Evening Jodhpuri</div><div class="meta"><span class="price">₹14,990</span><span class="swatches"><span class="swatch" style="background:#24324b"></span><span class="swatch" style="background:#111"></span></span></div></div>
-        </article>
-        <article class="product-card">
-          <div class="product-image"><img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=800&q=80" alt="Little Heritage Indo-Western" /><button class="wish" aria-label="Save to wishlist">♡</button></div>
-          <div class="product-info"><div class="category">Kids</div><div class="name">Little Heritage</div><div class="meta"><span class="price">₹5,490</span><span class="swatches"><span class="swatch" style="background:#c49d75"></span><span class="swatch" style="background:#6e3d3e"></span></span></div></div>
-        </article>
-        <article class="product-card">
-          <div class="product-image"><img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=800&q=80" alt="Signature Crest Brooch" /><button class="wish" aria-label="Save to wishlist">♡</button></div>
-          <div class="product-info"><div class="category">Accessories</div><div class="name">Signature Crest Brooch</div><div class="meta"><span class="price">₹1,490</span><span class="swatches"><span class="swatch" style="background:#b79a5b"></span><span class="swatch" style="background:#aeaeb0"></span></span></div></div>
+        <div class="product-grid" id="grid-new"></div>
         </article>
       </div>
     </section>
+<section class="section bestsellers">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="eyebrow">Hand-picked for you</div><h2>Featured Products</h2></div>
+    </div>
+    <div class="product-grid" id="grid-feat"></div>
+  </div>
+</section>
+<section class="section wrap" id="alteration">
+  <div class="service-grid">
+    <div class="service-card">
+      <div class="eyebrow">The perfect fit, personalized</div>
+      <h3 style="font-family: Georgia, serif; font-size: 36px; line-height: 1.04; margin: 0 0 12px;">Made to fit. Made for you.</h3>
+      <p>Our in-store alteration service brings the finishing touches to your chosen piece. Available on selected products.</p>
+      <div class="cta-row" style="margin-top:20px;"><a href="#appointment" class="link">Book an alteration visit</a></div>
+    </div>
+    <div class="service-card dark">
+      <div class="eyebrow">Your style. Our undivided attention.</div>
+      <h3 style="font-family: Georgia, serif; font-size: 36px; line-height: 1.04; margin: 0 0 12px;">A little time. A lasting impression.</h3>
+      <p>Visit us for a personal styling consultation. Find the right silhouette, the right details, and a look that feels entirely you.</p>
+    </div>
+  </div>
+</section>
 
-    <section class="section wrap">
-      <div class="service-grid">
-        <div class="service-card">
-          <div class="eyebrow">The perfect fit, personalized</div>
-          <h3 style="font-family: Georgia, serif; font-size: 36px; line-height: 1.04; margin: 0 0 12px;">Made to fit. Made for you.</h3>
-          <p>Our in-store alteration service brings the finishing touches to your chosen piece. Because a great outfit starts with a perfect fit.</p>
-          <div class="cta-row" style="margin-top:20px;"><a href="#" class="link">Discover alteration services</a></div>
-        </div>
-        <div class="service-card dark">
-          <div class="eyebrow">Your style. Our undivided attention.</div>
-          <h3 style="font-family: Georgia, serif; font-size: 36px; line-height: 1.04; margin: 0 0 12px;">A little time. A lasting impression.</h3>
-          <p>Visit us for a personal styling consultation. Find the right silhouette, the right details, and a look that feels entirely you.</p>
-          <div class="cta-row" style="margin-top:20px;"><a href="#" class="link" style="color: white; border-color: rgba(255,255,255,0.55);">Book your appointment</a></div>
-        </div>
+<section class="section bestsellers" id="appointment">
+  <div class="wrap">
+    <div class="service-grid">
+      <div>
+        <div class="eyebrow">Book an Appointment</div>
+        <h2>Reserve your styling visit</h2>
+        <p style="color:var(--muted); max-width:380px;">Choose a date and store. Your request opens in WhatsApp so our team can confirm.</p>
       </div>
-    </section>
+      <form class="f" id="apptForm">
+        <input class="full" id="an" placeholder="Your name" required />
+        <input id="ap" placeholder="Phone number" required />
+        <input id="ad" type="date" required />
+        <select class="full" id="as">
+          <option>Surya Signature — Main Store</option>
+          <option>Surya Fashion World — Branch of Surya Signature</option>
+        </select>
+        <textarea class="full" id="am" rows="3" placeholder="What are you shopping for?"></textarea>
+        <button class="btn full" type="submit">Request appointment</button>
+      </form>
+    </div>
+  </div>
+</section>
 
-    <section class="section wrap">
+   <section class="section wrap" id="stores">
       <div class="section-head">
         <div>
           <div class="eyebrow">Experience the difference</div>
@@ -413,7 +406,7 @@ html { scroll-behavior: smooth; }
           <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=700&q=80" alt="Main store" />
           <div class="visit-copy">
             <div class="eyebrow">The main store</div>
-            <h3>Surya Signature</h3>
+            <h3>Surya Signature — Main Store</h3>
             <p>Our complete world of signature style. Contact us for opening hours and directions.</p>
             <a href="#" class="link">Plan your visit</a>
           </div>
@@ -421,7 +414,7 @@ html { scroll-behavior: smooth; }
         <div class="visit-card">
           <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=700&q=80" alt="Branch store" />
           <div class="visit-copy">
-            <div class="eyebrow">A branch of Surya Signature</div>
+            <div class="eyebrow">Branch of Surya Signature</div>
             <h3>Surya Fashion World</h3>
             <p>The same signature attention to detail. Contact us for opening hours and directions.</p>
             <a href="#" class="link">Plan your visit</a>
@@ -429,6 +422,46 @@ html { scroll-behavior: smooth; }
         </div>
       </div>
     </section>
+    <section class="section bestsellers" id="contact">
+  <div class="wrap" style="text-align:center;">
+    <div class="eyebrow">We are here to help</div>
+    <h2>Chat with us on WhatsApp</h2>
+    <p style="color:var(--muted);">Share a photo, ask about sizes or check availability.</p>
+    <div class="cta-row" style="justify-content:center;">
+      <a class="btn" data-wa href="#" target="_blank" rel="noopener">Message on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="section wrap" id="about">
+  <div class="eyebrow">Our story</div>
+  <h2>About Surya Signature</h2>
+  <p style="max-width:640px; color:var(--muted); margin-top:16px;">Replace this with your own story: when you started, what you stand for, and how you care for every fitting.</p>
+</section>
+
+<section class="section bestsellers">
+  <div class="wrap">
+    <div class="section-head"><h2>Customer Testimonials</h2></div>
+    <div class="three">
+      <div class="quote"><p>"Add a real customer review here."</p><span style="color:var(--muted);">Customer name, City</span></div>
+      <div class="quote"><p>"Add a real customer review here."</p><span style="color:var(--muted);">Customer name, City</span></div>
+      <div class="quote"><p>"Add a real customer review here."</p><span style="color:var(--muted);">Customer name, City</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section wrap">
+  <div class="section-head">
+    <h2>On Instagram</h2>
+    <a class="link" href="#">Follow @suryasignature</a>
+  </div>
+  <div class="gal">
+    <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=500&q=80" alt="" />
+    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=500&q=80" alt="" />
+    <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=500&q=80" alt="" />
+    <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=500&q=80" alt="" />
+  </div>
+</section>
   </main>
 
   <section class="newsletter">
@@ -459,28 +492,28 @@ html { scroll-behavior: smooth; }
         <div>
           <h4>Explore</h4>
           <div class="footer-links">
-            <a href="#">Men's collection</a>
-            <a href="#">Kids' collection</a>
-            <a href="#">Accessories</a>
-            <a href="#">Wedding & occasion wear</a>
+            <a href="#men">Men's collection</a>
+<a href="#kids">Kids' collection</a>
+<a href="#accessories">Accessories</a>
+<a href="#new-arrivals">New arrivals</a>
           </div>
         </div>
         <div>
           <h4>Here to help</h4>
           <div class="footer-links">
-            <a href="#">Book an appointment</a>
-            <a href="#">Alteration services</a>
-            <a href="#">Size guide</a>
-            <a href="#">Contact us</a>
+           <a href="#appointment">Book an appointment</a>
+<a href="#alteration">Alteration services</a>
+<a href="#contact">Contact us</a>
+<a href="#about">About us</a>
           </div>
         </div>
         <div>
-          <h4>Visit</h4>
-          <div class="footer-links">
-            <a href="#">Surya Signature — Main Store</a>
-            <a href="#">Surya Fashion World</a>
-            <a href="#">Our story</a>
-          </div>
+<h4>Visit</h4>
+<div class="footer-links">
+  <a href="#stores">Surya Signature — Main Store</a>
+  <a href="#stores">Surya Fashion World — Branch of Surya Signature</a>
+  <a href="#about">Our story</a>
+</div>
         </div>
       </div>
       <div class="footer-bottom">
@@ -490,4 +523,118 @@ html { scroll-behavior: smooth; }
     </div>
   </footer>
 </body>
+  <a class="wa" data-wa href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">WhatsApp</a>
+  <script>
+/* EDIT: your WhatsApp number, country code first, digits only */
+const WHATSAPP = "9541470305";
+document.querySelectorAll("[data-wa]").forEach(a => a.href = "https://wa.me/" + WHATSAPP);
+
+const MEN_CATS = ["Heavy Embroidered Sherwanis","Kurta Pajamas","Indo-Western","Bandhgala","Open Jodhpuri","Party Wear Waistcoats","Heavy Embroidered Suits","Formal Pants","Party Wear Shirts"];
+const KIDS_CATS = ["Kids Suits","Kids Indo-Western","Kids Formal Suits","Kids Ethnic Wear","Kids Party Wear"];
+const ACC_CATS = ["Pocket Squares","Brooches","Safas/Turbans","Stoles","Cufflinks","Ties","Bow Ties","Belts","Wedding Accessories","Other Accessories"];
+
+/* EDIT: your products. a = Men | Kids | Accessories, s = sale price (0 = none),
+   st = stock, b = Bestseller, nw = New Arrival, ft = Featured, alt = Alteration */
+const U = id => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=700&q=80`;
+const PRODUCTS = [
+ {n:"Ivory Heritage Sherwani",sku:"M-SH-001",a:"Men",c:"Heavy Embroidered Sherwanis",p:18990,s:0,st:5,sz:["M","L","XL"],co:["Ivory","Gold"],f:"Silk",o:"Wedding",b:1,nw:0,ft:1,alt:1,i:"1594938298603-c8148c4dae35"},
+ {n:"Midnight Bandhgala",sku:"M-BG-002",a:"Men",c:"Bandhgala",p:12990,s:10990,st:8,sz:["S","M","L"],co:["Black","Navy"],f:"Velvet",o:"Party",b:1,nw:1,ft:0,alt:1,i:"1507679799987-c73779587ccf"},
+ {n:"Classic Celebration Suit",sku:"M-ST-003",a:"Men",c:"Heavy Embroidered Suits",p:16990,s:0,st:0,sz:["L","XL"],co:["Grey","Black"],f:"Wool Blend",o:"Wedding",b:1,nw:0,ft:0,alt:1,i:"1598033129183-c4f50c736f10"},
+ {n:"Contemporary Indo-Western",sku:"M-IW-004",a:"Men",c:"Indo-Western",p:11990,s:0,st:6,sz:["M","L"],co:["Champagne","Maroon"],f:"Silk",o:"Reception",b:0,nw:1,ft:1,alt:1,i:"1617137968427-85924c800a22"},
+ {n:"Evening Jodhpuri",sku:"M-JD-005",a:"Men",c:"Open Jodhpuri",p:14990,s:0,st:4,sz:["M","L","XL"],co:["Navy","Black"],f:"Velvet",o:"Party",b:0,nw:1,ft:0,alt:1,i:"1594938298603-c8148c4dae35"},
+ {n:"Ivory Kurta Pajama",sku:"M-KP-006",a:"Men",c:"Kurta Pajamas",p:5990,s:0,st:12,sz:["S","M","L","XL"],co:["Ivory"],f:"Cotton",o:"Festive",b:0,nw:0,ft:0,alt:0,i:"1507679799987-c73779587ccf"},
+ {n:"Little Gentleman Suit",sku:"K-ST-001",a:"Kids",c:"Kids Suits",p:4990,s:0,st:7,sz:["4-5Y","6-7Y","8-9Y"],ag:["4-7","8-12"],co:["Navy","Beige"],o:"Party",b:1,nw:0,ft:1,alt:1,i:"1519238263530-99bdd11df2ea"},
+ {n:"Little Heritage Indo-Western",sku:"K-IW-002",a:"Kids",c:"Kids Indo-Western",p:5490,s:4990,st:5,sz:["2-3Y","4-5Y","6-7Y"],ag:["1-3","4-7"],co:["Beige","Maroon"],o:"Festive",b:0,nw:1,ft:0,alt:1,i:"1519238263530-99bdd11df2ea"},
+ {n:"Signature Crest Brooch",sku:"A-BR-001",a:"Accessories",c:"Brooches",p:1490,s:0,st:20,sz:["Free"],co:["Gold","Silver"],o:"Wedding",b:0,nw:1,ft:1,alt:0,i:"1618354691373-d851c5c3a990"},
+ {n:"Champagne Pocket Square",sku:"A-PS-002",a:"Accessories",c:"Pocket Squares",p:690,s:0,st:30,sz:["Free"],co:["Champagne"],o:"Party",b:1,nw:0,ft:0,alt:0,i:"1618354691373-d851c5c3a990"}
+];
+
+const inr = n => "₹" + n.toLocaleString("en-IN");
+const val = (x,k) => [].concat(x[k] || []);
+function card(x){
+  const price = x.s ? `<s>${inr(x.p)}</s><b>${inr(x.s)}</b>` : inr(x.p);
+  const tag = x.s ? "Sale" : x.nw ? "New" : x.b ? "Bestseller" : x.ft ? "Featured" : "";
+  return `<article class="product-card"><div class="product-image"><img loading="lazy" src="${U(x.i)}" alt="${x.n}">
+   ${tag ? `<span class="badge">${tag}</span>` : ""}${x.st <= 0 ? `<span class="badge out">Out of stock</span>` : ""}
+   <button class="wish" data-sku="${x.sku}" aria-label="Save to wishlist">♡</button></div>
+   <div class="product-info"><div class="category">${x.c}</div><div class="name">${x.n}</div>
+   <div class="meta"><span class="price">${price}</span></div>
+   <div class="category" style="margin-top:4px">${x.co.join(" · ")}${x.alt ? " · Alteration available" : ""}</div></div></article>`;
+}
+function show(id, list){
+  document.getElementById(id).innerHTML = list.length ? list.map(card).join("") : `<p class="empty">No products match these filters. Clear a filter to see more.</p>`;
+}
+
+const CONFIG = {
+  men:{aud:"Men",cats:MEN_CATS,grid:"grid-men",fields:[["Category","c"],["Size","sz"],["Color","co"],["Fabric","f"],["Occasion","o"]]},
+  kids:{aud:"Kids",cats:KIDS_CATS,grid:"grid-kids",fields:[["Age","ag"],["Size","sz"],["Category","c"],["Color","co"],["Occasion","o"]]},
+  accessories:{aud:"Accessories",cats:ACC_CATS,grid:"grid-accessories",fields:[]}
+};
+const BANDS = [["Under ₹5,000",0,4999],["₹5,000 – ₹10,000",5000,10000],["₹10,000 – ₹15,000",10001,15000],["Above ₹15,000",15001,1e9]];
+
+Object.entries(CONFIG).forEach(([key,cfg])=>{
+  const items = PRODUCTS.filter(x => x.a === cfg.aud);
+  const chips = document.querySelector(`[data-chips="${key}"]`);
+  const bar = document.querySelector(`[data-filters="${key}"]`);
+  const st = {cat:"", sel:{}, price:"", avail:"", best:false, nw:false};
+
+  chips.innerHTML = `<button class="chip on" data-c="">All</button>` + cfg.cats.map(c => `<button class="chip" data-c="${c}">${c}</button>`).join("");
+  if(bar){
+    bar.innerHTML = cfg.fields.map(([label,k]) => {
+      const opts = [...new Set(items.flatMap(x => val(x,k)))];
+      return `<select data-k="${k}"><option value="">${label}</option>${opts.map(o => `<option>${o}</option>`).join("")}</select>`;
+    }).join("")
+    + `<select data-k="price"><option value="">Price</option>${BANDS.map((b,i) => `<option value="${i}">${b[0]}</option>`).join("")}</select>`
+    + `<select data-k="avail"><option value="">Availability</option><option value="in">In stock</option><option value="out">Out of stock</option></select>`
+    + `<label><input type="checkbox" data-k="best"> Bestseller</label><label><input type="checkbox" data-k="nw"> New Arrival</label>`;
+  }
+  function apply(){
+    show(cfg.grid, items.filter(x => {
+      if(st.cat && x.c !== st.cat) return false;
+      for(const k in st.sel) if(st.sel[k] && !val(x,k).includes(st.sel[k])) return false;
+      if(st.price !== ""){ const b = BANDS[st.price], pr = x.s || x.p; if(pr < b[1] || pr > b[2]) return false; }
+      if(st.avail === "in" && x.st <= 0) return false;
+      if(st.avail === "out" && x.st > 0) return false;
+      if(st.best && !x.b) return false;
+      if(st.nw && !x.nw) return false;
+      return true;
+    }));
+  }
+  chips.addEventListener("click", e => {
+    const b = e.target.closest(".chip"); if(!b) return;
+    chips.querySelectorAll(".chip").forEach(c => c.classList.remove("on")); b.classList.add("on");
+    st.cat = b.dataset.c;
+    const cs = bar && bar.querySelector('[data-k="c"]'); if(cs) cs.value = st.cat;
+    apply();
+  });
+  if(bar) bar.addEventListener("change", e => {
+    const k = e.target.dataset.k; if(!k) return;
+    if(k === "price") st.price = e.target.value;
+    else if(k === "avail") st.avail = e.target.value;
+    else if(k === "best" || k === "nw") st[k] = e.target.checked;
+    else if(k === "c"){ st.cat = e.target.value; chips.querySelectorAll(".chip").forEach(c => c.classList.toggle("on", c.dataset.c === st.cat)); }
+    else st.sel[k] = e.target.value;
+    apply();
+  });
+  apply();
+});
+
+show("grid-best", PRODUCTS.filter(x => x.b).slice(0,4));
+show("grid-new", PRODUCTS.filter(x => x.nw).slice(0,4));
+show("grid-feat", PRODUCTS.filter(x => x.ft).slice(0,4));
+
+const wished = new Set();
+document.addEventListener("click", e => {
+  const w = e.target.closest(".wish"); if(!w) return;
+  const s = w.dataset.sku; wished.has(s) ? wished.delete(s) : wished.add(s);
+  document.querySelectorAll(`.wish[data-sku="${s}"]`).forEach(b => { b.classList.toggle("on", wished.has(s)); b.textContent = wished.has(s) ? "♥" : "♡"; });
+  document.getElementById("wc").textContent = wished.size;
+});
+
+document.getElementById("apptForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const t = `Appointment request%0AName: ${an.value}%0APhone: ${ap.value}%0ADate: ${ad.value}%0AStore: ${as.value}%0ANote: ${am.value}`;
+  window.open(`https://wa.me/${WHATSAPP}?text=${t}`, "_blank");
+});
+</script>
 </html>
